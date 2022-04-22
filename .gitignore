@@ -20,3 +20,6 @@ guestbook_dev.db.mv.db
 guestbook_dev.db.trace.db
 guestbook_test.db.mv.db
 guestbook_test.db.trace.db
+
+/.clj-kondo
+/.lsp

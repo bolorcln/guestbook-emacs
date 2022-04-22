@@ -63,3 +63,17 @@
     (add-hook 'clojurec-mode-hook 'paredit-mode)
     (add-hook 'cider-repl-mode-hook 'paredit-mode)))
 
+(use-package lsp-mode
+  :ensure t
+  :hook ((clojure-mode . lsp)
+	 (clojurec-mode . lsp)
+	 (clojurescript-mode . lsp))
+  :config
+  (dolist (m '(clojure-mode
+	       clojurec-mode
+	       clojurescript-mode
+	       clojurex-mode))
+    (add-to-list 'lsp-language-id-configuration '(,m . "clojure"))))
+
+(use-package company
+  :ensure t)
