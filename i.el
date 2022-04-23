@@ -26,6 +26,17 @@
 (use-package zenburn-theme
   :config (load-theme 'zenburn t))
 
+(use-package helm
+  :ensure t
+  :demand
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-x b" . helm-buffers-list)
+	 ("C-c c o" . helm-occur)) ;SC
+  :preface (require 'helm-config)
+  :config (helm-mode 1)
+  )
+
 ;; For clojure
 (use-package flycheck
   :init (global-flycheck-mode))
@@ -74,6 +85,7 @@
 	       clojurescript-mode
 	       clojurex-mode))
     (add-to-list 'lsp-language-id-configuration '(,m . "clojure"))))
+(setq lsp-lens-enable nil)
 
 (use-package company
   :ensure t)
